@@ -9,4 +9,4 @@ class Song:
         return self.length * 60
 
     def __str__(self):
-        return f"{self.name} by {self.artist} ({self.length})"
+        return f"'{self.name}' by {self.artist} ({self.length})"
