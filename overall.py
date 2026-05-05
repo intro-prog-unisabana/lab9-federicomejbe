@@ -1,6 +1,7 @@
-# TODO: Import modules
+from car_utils import create_car_from_input, display_cars
+
 def main():
-    cars = {}  # Dictionary to store cars with car_id as key and car objects as values
+    cars = {}
 
     while True:
         print("\nMenu:")
@@ -13,25 +14,31 @@ def main():
         choice = input("Choose an option:\n")
 
         if choice == '1':
-          """TODO: Call the appropriate function from utils.py to create 
-          the car, add it to the dictionary, and print the car."""
-
+            car = create_car_from_input()
+            cars[car.car_id] = car
+            print(car)
+            print("Car added.")
 
         elif choice == '2':
-          """TODO: Call the appropriate function from utils.py to display
-          all the cars in the cars dictionary."""
+            display_cars(cars)
 
         elif choice == '3':
-          car_id = input("Enter the car ID to drive:\n")
-          miles = float(input("How many miles to drive?\n"))
-          """TODO: Look up the car in the dictionary, call the appropriate
-          class method to increase the mileage of the car, and print the car."""
-          
+            car_id = input("Enter the car ID to drive:\n")
+            miles = float(input("How many miles to drive?\n"))
+
+            if car_id in cars:
+                cars[car_id].drive(miles)
+                print("Mileage updated.")
+                print(cars[car_id])
+
         elif choice == '4':
-          car_id = input("Enter the car ID to paint:\n")
-          new_color = input("Enter the new color:\n")
-          """TODO: Look up the car in the dictionary, call the appropriate
-          class method to change the color of the car, and print the car."""
+            car_id = input("Enter the car ID to paint:\n")
+            new_color = input("Enter the new color:\n")
+
+            if car_id in cars:
+                cars[car_id].change_color(new_color)
+                print("Color updated.")
+                print(cars[car_id])
 
         elif choice == '5':
             print("Goodbye!")
@@ -39,6 +46,7 @@ def main():
 
         else:
             print("Invalid option. Please try again.")
+
 
 if __name__ == "__main__":
     main()

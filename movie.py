@@ -1,4 +1,5 @@
 # Write your code here!
+
 # FREEZE CODE BEGIN
 class Movie:
     def __init__(self, title, director, year):
@@ -8,6 +9,8 @@ class Movie:
 # FREEZE CODE END
     # TODO: Define the __str__ method!
 
+    def __str__(self):
+        return f"Movie: {self.title} (Directed by {self.director}, {self.year})"
 
 # FREEZE CODE BEGIN
 if __name__ == "__main__":
@@ -16,7 +19,8 @@ if __name__ == "__main__":
     director = input("Enter the director's name: ")
     year = input("Enter the release year: ")
 # FREEZE CODE END
-    
+movie = Movie(title, director, year)
+print(movie)
     
     # TODO: Construct a Movie object!
     # TODO: Print the object!
